@@ -39,7 +39,7 @@ gfarm2fs package supports the following variants:
     or
 
     ```shell
-    spack instlal gfarm2fs
+    spack install gfarm2fs
     ```
 
 1. Load a package to your environment.
