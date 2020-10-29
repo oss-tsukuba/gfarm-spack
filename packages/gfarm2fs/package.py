@@ -19,10 +19,8 @@ class Gfarm2fs(AutotoolsPackage):
     depends_on('gfarm')
     # depends_on('libfuse@2.9.9')
 
-    variant('acl', default=False, description='Builds with acl')
-
-    if '+acl' in spec:
-        depends_on('acl')
+    variant('acl', default=True, description='Enable acl support')
+    depends_on('acl', when='+acl')
 
     def configure_args(self):
         spec = self.spec
