@@ -13,6 +13,23 @@ This repository provides the following packages:
 - gfarm
 - gfarm2fs
 
+## gfarm package
+
+The gfarm package provides the Gfarm file system programs.
+
+### Variants
+
+gfarm package supports the following variants:
+
+| name | default | Allowed values | Description | 
+|---|---|---|---|
+| infiniband | none |  | Specifies to use RDMA through InfiniBand. You can specify the custome prefix for InifiniBand (i.e. `infiniband_path=/usr/local`). |
+
+
+## gfarm2fs package
+
+The gfarm2fs provides the Linux FUSE client for Gfarm file system.
+
 ### Variants
 
 gfarm2fs package supports the following variants:
