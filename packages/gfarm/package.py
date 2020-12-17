@@ -19,11 +19,13 @@ class Gfarm(AutotoolsPackage):
     version('main', branch='2.7', preferred=True)
     version('2.7.17', sha256='e97c4629821fae77c534b06cfbcc86dfb979fc04')
 
-    depends_on('openssl')
-    depends_on('postgresql')
-
     variant('infiniband', default='none', description='Specifies to use RDMA through InfiniBand. You can specify the custome prefix for InifiniBand (i.e. \
 `infiniband_path=/usr/local`).')
+    variant('xmlattr', default=False, description='Enables XML extended attribute feature.')
+
+    depends_on('openssl')
+    depends_on('postgresql', when='xmlattr=False')
+    depends_on('postgresql+xml', when='xmlattr=True')
 
     def configure_args(self):
         args = []
@@ -34,5 +36,8 @@ class Gfarm(AutotoolsPackage):
                 args.append('--with-infiniband')
             else:
                 args.append('--with-infiniband={0}'.format(infiniband))
+
+        if '+xmlattr' in self.spec:
+            args.append('--enable-xmlattr')
 
         return args
