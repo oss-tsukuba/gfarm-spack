@@ -23,8 +23,8 @@ gfarm package supports the following variants:
 
 | name | default | Allowed values | Description | 
 |---|---|---|---|
-| infiniband | none |  | Specifies to use RDMA through InfiniBand. You can specify the custome prefix for InifiniBand (i.e. `infiniband_path=/usr/local`). |
-
+| infiniband | none |  | Specifies to use RDMA through InfiniBand. You can specify the custome prefix for InifiniBand (i.e. `infiniband=/usr/local`). |
+| xmlattr | off | on, off | Enables XML extended attribute feature. |
 
 ## gfarm2fs package
 
@@ -56,7 +56,19 @@ gfarm2fs package supports the following variants:
     or
 
     ```shell
+    spack install gfarm+xmlattr infiniband=/usr/local
+    ```
+
+   or
+
+    ```shell
     spack install gfarm2fs
+    ```
+
+   or
+
+    ```shell
+    spack install gfarm2fs gfarm+xmlattr
     ```
 
 1. Load a package to your environment.
@@ -82,7 +94,7 @@ Currently, gfarm2fs package requires to install libfuse v2 devel package as depe
 **Ubuntu**
 
 ```shell
-sudo apt install libfise-dev
+sudo apt install libfuse-dev
 ``` 
 
 **CentOS**
